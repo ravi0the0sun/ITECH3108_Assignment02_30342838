@@ -7,3 +7,4 @@ export const DATABASE = {
 	password: 'tRIvVLsCR8Z',
 	port: 5432,
 };
+

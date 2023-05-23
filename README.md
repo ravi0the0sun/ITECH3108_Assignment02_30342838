@@ -1,7 +1,6 @@
 https://www.youtube.com/watch?v=AsYfbmp0To0
 rating formula = SUM(rating of a post)/number of ratings
 
-Certainly! I can help you generate fake data for testing purposes. Here's an example of a table with fake user data:
 
 | Username           | Password         |
 | ------------------ | ---------------- |
@@ -15,5 +14,5 @@ Certainly! I can help you generate fake data for testing purposes. Here's an exa
 | frozen_indulgence  | ScoopMaster99    |
 | creamy_bliss23     | DreamyGelato#23  |
 | frostbite74        | ChillOutNow!     |
+|ravi |ravi|
 
-Please note that these are randomly generated usernames and passwords for testing purposes only. It is important to use strong, unique passwords for real user accounts to ensure security.

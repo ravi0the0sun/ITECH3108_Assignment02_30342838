@@ -1,20 +1,21 @@
 const confidenceLevel = 0.95; //confidence level of 95%
 
 const tTable = {
-    1: 12.71,
-    2: 4.303,
-    3: 3.182,
-    4: 2.776,
-    5: 2.572,
-    6: 2.447,
-    7: 2.365,
-    8: 2.306,
-    9: 2.262,
-    10: 2.228
+    1: 6.314,
+    2: 2.920,
+    3: 2.353,
+    4: 2.123,
+    5: 2.015,
+    6: 1.943,
+    7: 1.895,
+    8: 1.860,
+    9: 1.833,
+    10: 1.812
     /* 
-    * the sample reviews do not surpass count of 10 so using t-table
-    * values of confidence level 95% till 10 degrees
-    * of two tailed test of freedom
+    * the sample reviews do not surpass count of 
+    * 10 so using t-table values of confidence level 95% 
+    * till 10 degrees of freedom of one tailed test
+    * https://www.sjsu.edu/faculty/gerstman/StatPrimer/t-table.pdf
     */
 }
 
@@ -34,7 +35,7 @@ function confidenceError(sd, count) {
     if (degreeOfFreedom > 11) {
         return standardError * 2.042 // value of t in 30 degree of freedom with confidence level of 95%
     } else if (!tTable[degreeOfFreedom]) {
-        return standardError * 1.960
+        return standardError * 1.960 // value of z
     }
     return standardError * tTable[degreeOfFreedom];
 }
@@ -48,7 +49,9 @@ function calcRating(ratings) {
     const sd = standardDeviation(ratings, mean);
     const cError  = confidenceError(sd, ratings.length);
     const cInterval = confidenceInterval(cError, mean);
+
+    console.log(`mean: ${mean}, SD: ${sd}, cError: ${cError}, CI: ${cInterval}`)
     return {mean: (Math.round(mean * 1000) / 1000), ...cInterval}
 }
 
-console.log(calcRating([3,4,3,4,3,3,2]));
+console.log(calcRating([1]));

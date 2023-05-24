@@ -1,6 +1,6 @@
 import { Application, Router } from 'https://deno.land/x/oak@v7.4.1/mod.ts';
 import { staticFiles } from './modules/middleware/static.js';
-import sodium from './modules/config/sodium.js';
+import { pwHashing } from './modules/middleware/authHandler.js';
 
 import client from './modules/db/db.js';
 
@@ -30,11 +30,7 @@ const member = [
 member.forEach(async user => {
 	const results =
 		await client.queryObject`INSERT INTO member(username, pwhash) VALUES
-		(${user[0]},${sodium.crypto_pwhash_str(
-			user[1],
-			sodium.crypto_pwhash_OPSLIMIT_INTERACTIVE,
-			sodium.crypto_pwhash_MEMLIMIT_INTERACTIVE
-		)}) RETURNING (ID)
+		(${user[0]},${pwHashing(user[1])}) RETURNING (ID)
 	`;
 	console.log(results);
 });

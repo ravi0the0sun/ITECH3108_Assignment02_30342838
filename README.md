@@ -1,6 +1,8 @@
 https://www.youtube.com/watch?v=AsYfbmp0To0
+https://www.postgresql.org/message-id/000e01bfa922%2403466330%24a20efea9%40indus
+https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-create-table/
+https://www.w3schools.com/sql/sql_insert.asp
 rating formula = SUM(rating of a post)/number of ratings
-
 
 | Username           | Password         |
 | ------------------ | ---------------- |
@@ -14,5 +16,12 @@ rating formula = SUM(rating of a post)/number of ratings
 | frozen_indulgence  | ScoopMaster99    |
 | creamy_bliss23     | DreamyGelato#23  |
 | frostbite74        | ChillOutNow!     |
-|ravi |ravi|
+| ravi               | ravi             |
 
+REST API
+| Method | URL | Returns |
+|--------|-----|---------|
+| GET |/api/posts | Returns all post |
+| GET |/api/reviews | Returns all reviews |
+| GET |/api/users | Returns all usernames |
+| GET |/api/user | Verify User |
